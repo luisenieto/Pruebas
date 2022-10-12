@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Pruebas" default="all" basedir=".">
+
+    <property name="src.dir"     value="src"/>
+    <property name="test.dir"     value="test"/>
+
+    <property name="build.dir"   value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="testclasses.dir" value="${build.dir}/${test.dir}/classes"/>
+
+    <property name="log4j" value="lib/log4j-1.2.17.jar"/>
+    <property name="junit4" value="lib/junit-4.12.jar"/>
+    <property name="hamcrest" value="lib/hamcrest-core-1.3.jar"/>
+
+    <property name="jar.dir"     value="dist"/>
+    <property name="jarfile"  value="${jar.dir}/${ant.project.name}.jar"/>
+
+    <property name="main-class"  value="pruebas.Conductor"/>
+
+    <property name="report.dir" value="report" />
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>  
+        <delete dir="${jar.dir}"/>
+	<delete dir="${report.dir}"/>        
+    </target>
+
+    <path id="classpath1"  cache="true">
+    <!--A este path lo referencian los targets compile y run-->
+	<pathelement path="${log4j}" />
+        <!--Lo necesitan los targets compile y run-->
+
+	<pathelement path="${jarfile}" />
+	<!--Lo necesita el target run-->
+    </path>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${classes.dir}"/>	
+        <!--javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" includeantruntime="false"-->    
+	    <!--classpath location="lib/log4j-1.2.17.jar" cache="true" /-->  
+	    <!--classpath path="${log4j}" /-->  
+	    <!--classpath>
+		<pathelement location="lib/log4j-1.2.17.jar"/>
+	    </classpath-->
+	    <!--classpath refid="classpath"/-->
+        <!--/javac-->
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" includeantruntime="false" classpathref="classpath1" />
+    </target>    
+
+    <target name="jar" depends="compile">
+	<mkdir dir="${jar.dir}"/>
+	<jar destfile="${jarfile}" basedir="${classes.dir}">
+	    <manifest>
+		<attribute name="Main-Class" value="${main-class}"/>
+	    </manifest>
+	</jar>
+    </target>    
+
+    <target name="run" depends="jar">
+        <!--java jar="${jarfile}" fork="true"/-->
+	<java fork="true" classname="${main-class}" classpathref="classpath1" />
+        <!-- ejecuta el jar -->
+    </target>
+
+    <path id="classpath10"  cache="true" >
+	<fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+        <path location="${classes.dir}"/>
+    </path>
+
+    <path id="classpath2"  >
+    <!--A este path lo referencia el target testcompile-->
+	<pathelement path="${junit4}" />
+	<pathelement path="${hamcrest}" />
+	<pathelement path="${classes.dir}"/>
+	<!--pathelement path="${jarfile}" /-->
+	<!--Para compilar se necesita la ubicación de los jar de JUnit y la las clases que se prueban-->
+    </path>
+
+<path id="jclass.path">
+	<fileset dir="${lib.dir}">
+	    <include name="hamcrest-core-1.3.jar"/>
+	    <include name="junit-4.12.jar"/>
+	</fileset>
+	<pathelement location="${classes.dir}" />
+    </path>
+
+    <target name="testcompile" depends="compile">
+        <mkdir dir="${testclasses.dir}"/>
+	<javac srcdir="${test.dir}" destdir="${testclasses.dir}" debug="true" includeantruntime="false" classpathref="classpath2" />
+    </target>
+
+    <target name="test" depends="testcompile">  
+        <mkdir dir="${report.dir}"/>          
+	<junit printsummary="on" fork="true" >
+	    <classpath>
+		<path refid="classpath2"/>
+		<pathelement location="${testclasses.dir}" />
+	    </classpath>
+	    <formatter type="xml" />
+	    <batchtest todir="${report.dir}">
+	        <fileset dir="${test.dir}" >
+	            <include name="**/*Test*.java" />
+	        </fileset>
+	    </batchtest>
+	</junit>
+    </target>
+
+
+
+
+</project>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Pruebas" default="all" basedir="." xmlns:sonar="antlib:org.sonar.ant" xmlns:jacoco="antlib:org.jacoco.ant">
+
+    <property name="src.dir"     value="src"/>
+    <property name="test.dir"     value="test"/>
+
+    <property name="build.dir"   value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="testclasses.dir" value="${build.dir}/${test.dir}/classes"/>
+
+    <property name="jar.dir"     value="dist"/>
+    <property name="jarfile"  value="${jar.dir}/${ant.project.name}.jar"/>
+
+    <property name="lib.dir"     value="lib"/>
+       
+    <property name="report.dir" value="report" />
+    <property name="result.exec.file" location="${report.dir}/jacoco.exec" />
+
+    <property name="main-class"  value="pruebas.Conductor"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>  
+	<delete dir="${report.dir}"/>        
+    </target>
+
+    <path id="classpath">
+      <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <path id="classpath1">
+      <fileset dir="${lib.dir}" includes="**/*.jar"/>
+      <pathelement path="${classes.dir}"/>
+    </path>
+
+    <target name="compile" depends="clean">
+        <mkdir dir="${classes.dir}"/>	
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" includeantruntime="false">        
+            <classpath refid="classpath" />
+        </javac>
+    </target>
+
+    <!-- Se importan las tareas JaCoCo para Ant -->
+    <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
+        <classpath path="${lib.dir}/jacocoant.jar" />
+    </taskdef>
+
+    <target name="run" depends="compile">
+	<jacoco:coverage destfile="${result.exec.file}">
+        <!-- Si no está la carpeta report, la crea -->
+            <java fork="true" classname="${main-class}" classpathref="classpath1"/>
+	        <!--classpath path="${classes.dir}" /-->
+		<!--arg value="null"/>
+		<arg value="null"/>
+		<arg value="1"/>
+		<arg value="null"/>
+		<arg value="null"/>
+		<arg value="2"/>
+		<arg value="1"/>
+		<arg value="2"/-->
+	    <!--/java-->
+	</jacoco:coverage>
+    </target>
+
+    <target name="report" depends="run">
+	<!-- Se crea el reporte de la cobertura -->
+	<jacoco:report>
+	    <!-- Primero se necesitan los datos recolectados de la ejecución -->
+	    <executiondata>
+		<file file="${result.exec.file}" />
+	    </executiondata>
+
+	    <!-- Luego se necesitan los bytecode y archivos fuente opcionales -->
+	    <structure name="JaCoCo Ant Example">
+		<classfiles>
+		    <fileset dir="${classes.dir}" />
+		</classfiles>
+		<sourcefiles encoding="UTF-8">
+		    <fileset dir="${src.dir}" />
+		</sourcefiles>
+	    </structure>
+
+	    <!-- Se producen reportes en diferentes formatos -->
+	    <html destdir="${report.dir}" />
+	    <csv destfile="${report.dir}/report.csv" />
+	    <xml destfile="${report.dir}/report.xml" />
+	</jacoco:report>
+    </target>
+
+    <target name="rebuild" depends="clean,compile,run,report" />
+
+    <path id="jclass.path">
+	<fileset dir="${lib.dir}">
+	    <include name="hamcrest-core-1.3.jar"/>
+	    <include name="junit-4.12.jar"/>
+	</fileset>
+	<pathelement location="${classes.dir}" />
+    </path>
+
+    <target name="testcompile" depends="compile">
+        <mkdir dir="${testclasses.dir}"/>
+	<javac srcdir="${test.dir}" destdir="${testclasses.dir}" debug="true" includeantruntime="false">
+	    <classpath refid="jclass.path" />
+	</javac>
+    </target>
+
+    <target name="test" depends="testcompile">    
+        <mkdir dir="${report.dir}"/>  
+	<jacoco:coverage destfile="${result.exec.file}">  
+	<junit printsummary="on" fork="true" >
+	    <classpath>
+		<path refid="jclass.path"/>
+		<pathelement location="${testclasses.dir}" />
+	    </classpath>
+	    <formatter type="xml" />
+	    <batchtest todir="${report.dir}">
+	        <fileset dir="${test.dir}" >
+	            <include name="**/*Test*.java" />
+	        </fileset>
+	    </batchtest>
+	</junit>
+	</jacoco:coverage>
+    </target>
+
+    <target name="reporttest" depends="test">
+	<jacoco:report>
+	    <executiondata>
+		<file file="${result.exec.file}" />
+	    </executiondata>
+
+	    <!-- Luego se necesitan los bytecode y archivos fuente opcionales -->
+	    <structure name="JaCoCo Ant Example">
+		<classfiles>
+		    <fileset dir="${classes.dir}" />
+		</classfiles>
+		<sourcefiles encoding="UTF-8">
+		    <fileset dir="${src.dir}" />
+		</sourcefiles>
+	    </structure>
+
+	    <!-- Se producen reportes en diferentes formatos -->
+	    <html destdir="${report.dir}" />
+	    <csv destfile="${report.dir}/report.csv" />
+	    <xml destfile="${report.dir}/report.xml" />
+	</jacoco:report>
+    </target>
+
+</project>

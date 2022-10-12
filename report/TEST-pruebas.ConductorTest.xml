@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Luis-Notebook" name="pruebas.ConductorTest" skipped="0" tests="5" time="0.187" timestamp="2022-10-06T01:33:59">
+  <properties>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="java.specification.version" value="12" />
+    <property name="ant.project.name" value="Pruebas" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="testclasses.dir" value="build/test/classes" />
+    <property name="sun.java2d.dpiaware" value="true" />
+    <property name="jar.dir" value="dist" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="sun.font.fontmanager" value="sun.awt.X11FontManager" />
+    <property name="java.vendor.url" value="https://java.oracle.com/" />
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk-12.0.1/lib" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner pruebas.ConductorTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/report/TEST-pruebas.ConductorTest.xml crashfile=/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/junitvmwatcher9591159374338452407.properties propsfile=/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/junit1231388039049260514.properties" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="jdk.debug" value="release" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="_jacoco.agentFile" value="/tmp/jacocoagent17547339722947048916.jar" />
+    <property name="java.version.date" value="2019-04-16" />
+    <property name="java.home" value="/usr/lib/jvm/jdk-12.0.1" />
+    <property name="netbeans.user" value="/root/.netbeans/12.0" />
+    <property name="basedir" value="/root/Documentos/UNT/Programación II/Ejemplos/Pruebas" />
+    <property name="file.separator" value="/" />
+    <property name="java.vm.compressedOopsMode" value="Zero based" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="jna.boot.library.name" value="jnidispatch-nb" />
+    <property name="jacocoant" value="lib/jacocoant.jar" />
+    <property name="netbeans.productversion" value="Apache NetBeans IDE 12.0" />
+    <property name="netbeans.extbrowser.manual_chrome_plugin_install" value="yes" />
+    <property name="netbeans.default_userdir_root" value="/root/.netbeans" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="jarfile" value="dist/Pruebas.jar" />
+    <property name="jdk.home" value="/usr/lib/jvm/jdk-12.0.1" />
+    <property name="java.runtime.version" value="12.0.1+12" />
+    <property name="user.name" value="root" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="sun.zip.disableMemoryMapping" value="true" />
+    <property name="jnidispatch.path" value="/root/.cache/JNA/temp/jna5447398749139202183.tmp" />
+    <property name="build.dir" value="build" />
+    <property name="jna.loaded" value="true" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.version" value="12.0.1" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="ant.junit.enabletestlistenerevents" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.home" value="/usr/local/netbeans-12.0/netbeans/extide/ant" />
+    <property name="lib.dir" value="lib" />
+    <property name="ant.file.Pruebas" value="/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/build5.xml" />
+    <property name="nb.native.filechooser" value="false" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.4 compiled on June 19 2018" />
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="classes.dir" value="build/classes" />
+    <property name="jdk.gtk.version" value="2.2" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="netbeans.dirs" value="/usr/local/netbeans-12.0/netbeans/nb:/usr/local/netbeans-12.0/netbeans/ergonomics:/usr/local/netbeans-12.0/netbeans/ide:/usr/local/netbeans-12.0/netbeans/extide:/usr/local/netbeans-12.0/netbeans/java:/usr/local/netbeans-12.0/netbeans/apisupport:/usr/local/netbeans-12.0/netbeans/webcommon:/usr/local/netbeans-12.0/netbeans/websvccommon:/usr/local/netbeans-12.0/netbeans/enterprise:/usr/local/netbeans-12.0/netbeans/mobility:/usr/local/netbeans-12.0/netbeans/profiler:/usr/local/netbeans-12.0/netbeans/python:/usr/local/netbeans-12.0/netbeans/php:/usr/local/netbeans-12.0/netbeans/identity:/usr/local/netbeans-12.0/netbeans/harness:/usr/local/netbeans-12.0/netbeans/cnd:/usr/local/netbeans-12.0/netbeans/cndext:/usr/local/netbeans-12.0/netbeans/dlight:/usr/local/netbeans-12.0/netbeans/groovy:/usr/local/netbeans-12.0/netbeans/extra:/usr/local/netbeans-12.0/netbeans/javacard:/usr/local/netbeans-12.0/netbeans/javafx:" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="junit4" value="lib/junit-4.12.jar" />
+    <property name="sun.desktop" value="gnome" />
+    <property name="netbeans.dynamic.classpath" value="/usr/local/netbeans-12.0/netbeans/platform/core/core.jar:/usr/local/netbeans-12.0/netbeans/platform/core/core-base.jar:/usr/local/netbeans-12.0/netbeans/platform/core/org-netbeans-libs-asm.jar:/usr/local/netbeans-12.0/netbeans/platform/core/asm-commons-7.2.jar:/usr/local/netbeans-12.0/netbeans/platform/core/asm-tree-7.2.jar:/usr/local/netbeans-12.0/netbeans/platform/core/org-openide-filesystems.jar:/usr/local/netbeans-12.0/netbeans/platform/core/org-openide-filesystems-compat8.jar:/usr/local/netbeans-12.0/netbeans/platform/core/asm-7.2.jar:/usr/local/netbeans-12.0/netbeans/nb/core/org-netbeans-upgrader.jar:/usr/local/netbeans-12.0/netbeans/nb/core/locale/core_nb.jar" />
+    <property name="netbeans.autoupdate.country" value="AR" />
+    <property name="java.class.path" value="/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/lib/log4j-1.2.17.jar:/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/lib/junit-4.12.jar:/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/lib/hamcrest-core-1.3.jar:/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/build/test/classes:/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/dist/Pruebas.jar:/usr/local/netbeans-12.0/netbeans/extide/ant/lib/ant-launcher.jar:/usr/local/netbeans-12.0/netbeans/extide/ant/lib/ant.jar:/usr/local/netbeans-12.0/netbeans/extide/ant/lib/ant-junit.jar:/usr/local/netbeans-12.0/netbeans/extide/ant/lib/ant-junit4.jar" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="ant.file.type.Pruebas" value="file" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="main-class" value="pruebas.Conductor" />
+    <property name="netbeans.buildnumber" value="12.0-631bd69cd6112b1cc4c892c24e3e605b1ba04241" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="user.timezone" value="America/Argentina/Tucuman" />
+    <property name="java.vm.specification.version" value="12" />
+    <property name="os.name" value="Linux" />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="user.country" value="AR" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="test.dir" value="test" />
+    <property name="user.home" value="/root" />
+    <property name="user.language" value="es" />
+    <property name="maven.defaultProjectBuilder.disableGlobalModelCache" value="true" />
+    <property name="ant.java.version" value="12" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="apple.awt.graphics.UseQuartz" value="true" />
+    <property name="plugin.manager.check.updates" value="false" />
+    <property name="netbeans.autoupdate.language" value="es" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="netbeans.hash.code" value="unique=NB_EXTIDE_JAVA_WEBCOMMON_WEBEE099454385-3a01-4c12-b4a3-cb9aaf0ff318_0574bd0a-31ee-4f32-a4f8-dbfbae09f330" />
+    <property name="ant.file" value="/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/build5.xml" />
+    <property name="path.separator" value=":" />
+    <property name="os.version" value="5.4.0-126-generic" />
+    <property name="netbeans.running.environment" value="gnome" />
+    <property name="netbeans.home" value="/usr/local/netbeans-12.0/netbeans/platform" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.project.invoked-targets" value="testreport" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="jna.platform.library.path" value="/usr/lib/x86_64-linux-gnu:/lib/x86_64-linux-gnu:/usr/lib64:/lib64:/usr/lib:/lib:/usr/lib/i386-linux-gnu:/lib/i386-linux-gnu:/usr/lib/i386-linux-gnu/sse2:/usr/local/lib:/usr/lib/x86_64-linux-gnu/libfakeroot" />
+    <property name="report.dir" value="report" />
+    <property name="log4j" value="lib/log4j-1.2.17.jar" />
+    <property name="ant.core.lib" value="/usr/local/netbeans-12.0/netbeans/extide/ant/lib/ant.jar" />
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/" />
+    <property name="user.dir" value="/root" />
+    <property name="os.arch" value="amd64" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="result.exec.file" value="/root/Documentos/UNT/Programación II/Ejemplos/Pruebas/report/jacoco.exec" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.vm.version" value="12.0.1+12" />
+    <property name="sun.awt.datatransfer.timeout" value="1000" />
+    <property name="java.class.version" value="56.0" />
+    <property name="hamcrest" value="lib/hamcrest-core-1.3.jar" />
+    <property name="src.dir" value="src" />
+    <property name="org.netbeans.io.suspend" value="0" />
+  </properties>
+  <testcase classname="pruebas.ConductorTest" name="siNoTienePatenteAlDiaNoDebeSerConductorValido" time="0.014" />
+  <testcase classname="pruebas.ConductorTest" name="siNoTieneSeguroNoDebeSerConductorValido" time="0.001" />
+  <testcase classname="pruebas.ConductorTest" name="siNoTieneEdadSuficienteNoDebeSerConductorValido" time="0.001" />
+  <testcase classname="pruebas.ConductorTest" name="siTieneEdadCarnetPatenteAlDiaYSeguroEsConductorValido" time="0.001" />
+  <testcase classname="pruebas.ConductorTest" name="siNoTieneCarnetNoDebeSerConductorValido" time="0.001" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
